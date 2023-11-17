@@ -25,13 +25,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(this);
+            Instance = this;
         }
     }
 
@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         uiManager.QuestionText.text = finalMessage;
         yield return new WaitForSeconds(uiManager.Delay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     #endregion =========================================================================================================

@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
 {
     [Header("Animation Settings")] [SerializeField, Tooltip("O botão que inicia o jogo")]
     private GameObject startButton;
+    
+    [SerializeField, Tooltip("O botão para sair do jogo")]
+    private GameObject exitButton;
 
     [SerializeField, Tooltip("Componente Animator do título")]
     private Animator titleAnimator;
@@ -52,6 +55,7 @@ public class UIManager : MonoBehaviour
     public void SetGame()
     {
         startButton.SetActive(false);
+        exitButton.SetActive(false);
         titleAnimator.SetTrigger(startTrigger);
         iconAnimator.SetTrigger(startTrigger);
         counterAnimator.SetTrigger(startTrigger);
